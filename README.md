@@ -1,11 +1,10 @@
 <h1>Bonjour , 
-
-NextLevel E-Sport
-<h1>
+</h1>
+<h2>NextLevel E-Sport</h2>
 Ce projet est une intégration HTML/CSS basée sur une maquette Figma.
 Il présente une plateforme dédiée à l’univers e-sport et gaming compétitif.
 
-Fonctionnement :
+<h3>Fonctionnement :</h3>
 
 Ouvre le fichier index.html dans ton navigateur.
 
@@ -13,7 +12,7 @@ La mise en page est gérée avec Flexbox et Grid.
 
 Le design est responsive : le site s’adapte automatiquement aux écrans desktop, tablette et mobile.
 
-Compétences visées
+<h3>Compétences visées</h3>
 
 C1. Planifier le travail à effectuer individuellement <br>
 niveau 1, imiter<br>
