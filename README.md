@@ -15,14 +15,14 @@ Le design est responsive : le site s’adapte automatiquement aux écrans deskto
 
 Compétences visées
 
-C1. Planifier le travail à effectuer individuellement
-niveau 1, imiter
-C6. Présenter un travail réalisé en synthétisant ses résultats, sa démarche
-niveau 1, imiter
-C1. Installer et configurer son environnement de travail
-niveau 1, imiter
-C2. Maquetter des interfaces utilisateur
-niveau 1, imiter
-C3. Réaliser des interfaces utilisateur
+C1. Planifier le travail à effectuer individuellement <br>
+niveau 1, imiter<br>
+C6. Présenter un travail réalisé en synthétisant ses résultats, sa démarche<br>
+niveau 1, imiter<br>
+C1. Installer et configurer son environnement de travail<br>
+niveau 1, imiter<br>
+C2. Maquetter des interfaces utilisateur<br>
+niveau 1, imiter<br>
+C3. Réaliser des interfaces utilisateur<br>
 niveau 2, adapter
 
