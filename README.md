@@ -1,7 +1,7 @@
-Bonjour , 
+<h1>Bonjour , 
 
 NextLevel E-Sport
-
+<h1>
 Ce projet est une intégration HTML/CSS basée sur une maquette Figma.
 Il présente une plateforme dédiée à l’univers e-sport et gaming compétitif.
 
