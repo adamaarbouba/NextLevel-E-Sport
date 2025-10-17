@@ -1,208 +1,278 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NextLevel E-Sport - Rejoignez la compétition</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextLevel E-Sport - Rejoignez la compétition</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header class="header">
       <div class="container">
         <div class="header-content">
           <div class="logo">
-            <span class="logo-text">NextLevel</span>
-            <span class="logo-accent">E-Sport</span>
+            <a href="index.html">
+              <span class="logo-text">NextLevel</span>
+              <span class="logo-accent">E-Sport</span>
+            </a>
           </div>
           <nav class="nav">
-            <a href="index.html" class="nav-link">Home</a>
             <a href="Teams.html" class="nav-link">Teams</a>
             <a href="News.html" class="nav-link">News</a>
             <a href="Tournaments.html" class="nav-link">Tournament</a>
-            <a href="Live.html" class="nav-link">Live</a>
-            <a href="Contact.html" class="nav-link">Contact</a>
             <a href="Sign-Up.html" class="nav-link">Sign-Up</a>
-            <a href="Login.html" class="nav-link">Log-in</a>
           </nav>
         </div>
       </div>
     </header>
 
-  <section id="news" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Dernières actualités</h2>
-        <p class="section-description">Restez informé des dernières nouvelles</p>
+    <section id="news" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Dernières actualités</h2>
+          <p class="section-description">
+            Restez informé des dernières nouvelles
+          </p>
+        </div>
+        <div class="news-grid">
+          <div class="news-card">
+            <div class="news-image">
+              <img
+                src="public/CyberpunkEsport.jpg"
+                alt="Final Showdown"
+              />
+              <div class="news-category">Tournois</div>
+            </div>
+            <div class="news-content">
+              <div class="news-meta">
+                <span class="news-date">3 Février 2025</span>
+                <span class="news-read-time">4 min de lecture</span>
+              </div>
+              <h3 class="news-title">
+                Final Showdown : une finale explosive à Tokyo
+              </h3>
+              <p class="news-excerpt">
+                Le match entre ShadowStrike et Neon Vipers a tenu toutes ses
+                promesses, avec une remontée spectaculaire en dernière manche.
+              </p>
+              <a href="Artical.html" class="news-link">
+                <span>Lire la suite</span>
+                <svg
+                  class="link-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="news-card">
+            <div class="news-image">
+              <img src="public/NovaKeyboard.jpg" alt="Nova Player" />
+              <div class="news-category">Joueurs</div>
+            </div>
+            <div class="news-content">
+              <div class="news-meta">
+                <span class="news-date">21 Mars 2025</span>
+                <span class="news-read-time">5 min de lecture</span>
+              </div>
+              <h3 class="news-title">
+                Nova : portrait d’un prodige du clavier
+              </h3>
+              <p class="news-excerpt">
+                À seulement 17 ans, Nova fait déjà trembler les vétérans et
+                s'impose comme le futur visage de l'e-sport.
+              </p>
+              <a href="Artical.html" class="news-link">
+                <span>Lire la suite</span>
+                <svg
+                  class="link-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-image">
+              <img
+                src="public/esport-team-celebration-with-purple-neon.jpg"
+                alt="Phoenix Rising"
+              />
+              <div class="news-category">Équipes</div>
+            </div>
+            <div class="news-content">
+              <div class="news-meta">
+                <span class="news-date">10 Janvier 2025</span>
+                <span class="news-read-time">3 min de lecture</span>
+              </div>
+              <h3 class="news-title">Phoenix Rising remporte le Winter Cup</h3>
+              <p class="news-excerpt">
+                L'équipe européenne domine la compétition et s'impose comme
+                favorite pour le Championship Series.
+              </p>
+              <a href="Artical.html" class="news-link">
+                <span>Lire la suite</span>
+                <svg
+                  class="link-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-image">
+              <img src="public/Team Eclipse annonce une nouvelle formation.jpg" alt="Team Eclipse" />
+              <div class="news-category">Équipes</div>
+            </div>
+            <div class="news-content">
+              <div class="news-meta">
+                <span class="news-date">5 Avril 2025</span>
+                <span class="news-read-time">2 min de lecture</span>
+              </div>
+              <h3 class="news-title">
+                Team Eclipse annonce une nouvelle formation
+              </h3>
+              <p class="news-excerpt">
+                Avec deux nouveaux joueurs recrutés, Eclipse redéfinit son style
+                et vise haut pour la saison à venir.
+              </p>
+              <a href="Artical.html" class="news-link">
+                <span>Lire la suite</span>
+                <svg
+                  class="link-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-image">
+              <img src="public/When AI boosts professional training.jpg" alt="Gaming AI" />
+              <div class="news-category">Technologie</div>
+            </div>
+            <div class="news-content">
+              <div class="news-meta">
+                <span class="news-date">28 Mai 2025</span>
+                <span class="news-read-time">3 min de lecture</span>
+              </div>
+              <h3 class="news-title">
+                Quand l’IA booste l'entraînement des pros
+              </h3>
+              <p class="news-excerpt">
+                Les intelligences artificielles révolutionnent la manière dont
+                les équipes s'entraînent et s'améliorent.
+              </p>
+              <a href="Artical.html" class="news-link">
+                <span>Lire la suite</span>
+                <svg
+                  class="link-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="news-card">
+            <div class="news-image">
+              <img
+                src="public/esports-world-cup-2025.jpg"
+                alt="Esports World Cup 2025"
+              />
+              <div class="news-category">eSport</div>
+            </div>
+            <div class="news-content">
+              <div class="news-meta">
+                <span class="news-date">15 Octobre 2025</span>
+                <span class="news-read-time">4 min de lecture</span>
+              </div>
+              <h3 class="news-title">
+                L’Esports World Cup 2025 électrise la scène mondiale
+              </h3>
+              <p class="news-excerpt">
+                Le plus grand tournoi d’eSport de l’année rassemble les
+                meilleures équipes de la planète pour un spectacle inoubliable à
+                Séoul.
+              </p>
+              <a href="Artical.html" class="news-link">
+                <span>Lire la suite</span>
+                <svg
+                  class="link-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="news-grid">
-         News Card 1 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="public/esport-prize-pool-announcement-with-pink-lights.jpg" alt="Nouveau tournoi">
-            <div class="news-category">Tournois</div>
-          </div>
-          <div class="news-content">
-            <div class="news-meta">
-              <span class="news-date">12 Janvier 2025</span>
-              <span class="news-read-time">5 min de lecture</span>
-            </div>
-            <h3 class="news-title">Annonce du Championship Series 2025</h3>
-            <p class="news-excerpt">
-              Le plus grand tournoi de l'année arrive avec un prize pool record de $500,000. Découvrez tous les détails.
-            </p>
-            <a href="#" class="news-link">
-              <span>Lire la suite</span>
-              <svg class="link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
+    </section>
 
-         News Card 2 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="public/esport-team-celebration-with-purple-neon.jpg" alt="Phoenix Rising">
-            <div class="news-category">Équipes</div>
-          </div>
-          <div class="news-content">
-            <div class="news-meta">
-              <span class="news-date">10 Janvier 2025</span>
-              <span class="news-read-time">3 min de lecture</span>
-            </div>
-            <h3 class="news-title">Phoenix Rising remporte le Winter Cup</h3>
-            <p class="news-excerpt">
-              L'équipe européenne domine la compétition et s'impose comme favorite pour le Championship Series.
-            </p>
-            <a href="#" class="news-link">
-              <span>Lire la suite</span>
-              <svg class="link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-         News Card 3 
-        <div class="news-card">
-          <div class="news-image">
-            <img src="public/esport-gaming-arena-with-neon-lights-and-competiti.jpg" alt="Mise à jour">
-            <div class="news-category">Plateforme</div>
-          </div>
-          <div class="news-content">
-            <div class="news-meta">
-              <span class="news-date">8 Janvier 2025</span>
-              <span class="news-read-time">4 min de lecture</span>
-            </div>
-            <h3 class="news-title">Nouvelles fonctionnalités disponibles</h3>
-            <p class="news-excerpt">
-              Découvrez les dernières améliorations de la plateforme : système de classement amélioré et nouveau chat.
-            </p>
-            <a href="#" class="news-link">
-              <span>Lire la suite</span>
-              <svg class="link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
     <footer id="contact" class="footer">
-      <div class="logo-container">
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/team-liquid.svg"
-            height="30"
-            width="30"
-            alt="team liquid"
-          />
-        </div>
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/esl.svg"
-            height="20"
-            width="66"
-            alt="esl"
-          />
-        </div>
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/electronic-arts.svg"
-            height="28"
-            width="29"
-            alt="ea"
-          />
-        </div>
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/fnatic.svg"
-            height="64"
-            width="64"
-            alt="fnatic"
-          />
-        </div>
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/red-bull.svg"
-            height="26"
-            width="53"
-            alt="red bull"
-          />
-        </div>
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/amd.svg"
-            height="24"
-            width="200"
-            alt="amd"
-          />
-        </div>
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/valve.svg"
-            height="20"
-            width="73"
-            alt="valve"
-          />
-        </div>
-        <div class="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/esic.svg"
-            height="26"
-            width="39"
-            alt="esic"
-          />
-        </div>
-      </div>
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
             <div class="logo">
-              <span class="logo-text">NextLevel</span>
-              <span class="logo-accent">E-Sport</span>
+              <a href="index.html">
+                <span class="logo-text">NextLevel</span>
+                <span class="logo-accent">E-Sport</span>
+              </a>
             </div>
             <p class="footer-tagline">
               La plateforme ultime pour les compétitions e-sport. Rejoignez des
@@ -239,34 +309,38 @@
               </a>
             </div>
           </div>
-          <div class="footer-links">
-            <div class="footer-column">
-              <h3 class="footer-heading">Plateforme</h3>
-              <ul class="footer-list">
-                <li><a href="Tournaments.html" class="footer-link">Tournois</a></li>
-                <li><a href="Teams.html" class="footer-link">Équipes</a></li>
-                <li><a href="#" class="footer-link">Classements</a></li>
-                <li><a href="#" class="footer-link">Calendrier</a></li>
-              </ul>
-            </div>
-            <div class="footer-column">
-              <h3 class="footer-heading">Communauté</h3>
-              <ul class="footer-list">
-                <li><a href="#" class="footer-link">Forum</a></li>
-                <li><a href="#" class="footer-link">Discord</a></li>
-                <li><a href="News.html" class="footer-link">Actualités</a></li>
-                <li><a href="#" class="footer-link">Support</a></li>
-              </ul>
-            </div>
-            <div class="footer-column">
-              <h3 class="footer-heading">Légal</h3>
-              <ul class="footer-list">
-                <li><a href="#" class="footer-link">Conditions d'utilisation</a></li>
-                <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
-                <li><a href="#" class="footer-link">Règlement</a></li>
-                <li><a href="Contact.html" class="footer-link">Contact</a></li>
-              </ul>
-            </div>
+          <div class="footer-column">
+            <h3 class="footer-heading">Plateforme</h3>
+            <ul class="footer-list">
+              <li>
+                <a href="Tournaments.html" class="footer-link">Tournois</a>
+              </li>
+              <li><a href="Teams.html" class="footer-link">Équipes</a></li>
+              <li><a href="#" class="footer-link">Classements</a></li>
+              <li><a href="#" class="footer-link">Calendrier</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 class="footer-heading">Communauté</h3>
+            <ul class="footer-list">
+              <li><a href="#" class="footer-link">Forum</a></li>
+              <li><a href="#" class="footer-link">Discord</a></li>
+              <li><a href="News.html" class="footer-link">Actualités</a></li>
+              <li><a href="#" class="footer-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 class="footer-heading">Légal</h3>
+            <ul class="footer-list">
+              <li>
+                <a href="#" class="footer-link">Conditions d'utilisation</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Politique de confidentialité</a>
+              </li>
+              <li><a href="#" class="footer-link">Règlement</a></li>
+              <li><a href="Contact.html" class="footer-link">Contact</a></li>
+            </ul>
           </div>
         </div>
         <div class="footer-bottom">
@@ -276,5 +350,87 @@
         </div>
       </div>
     </footer>
-</body>
+    <div class="logo-container">
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/team-liquid.svg"
+          height="30"
+          width="30"
+          alt="team liquid"
+        />
+      </div>
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/esl.svg"
+          height="20"
+          width="66"
+          alt="esl"
+        />
+      </div>
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/electronic-arts.svg"
+          height="28"
+          width="29"
+          alt="ea"
+        />
+      </div>
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/fnatic.svg"
+          height="64"
+          width="64"
+          alt="fnatic"
+        />
+      </div>
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/red-bull.svg"
+          height="26"
+          width="53"
+          alt="red bull"
+        />
+      </div>
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/amd.svg"
+          height="24"
+          width="200"
+          alt="amd"
+        />
+      </div>
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/valve.svg"
+          height="20"
+          width="73"
+          alt="valve"
+        />
+      </div>
+      <div class="logo-img">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://escharts.com/img/partners/landing/esic.svg"
+          height="26"
+          width="39"
+          alt="esic"
+        />
+      </div>
+    </div>
+  </body>
 </html>
