@@ -31,6 +31,30 @@ export default function Login() {
     }, 1000);
   };
 
+  const handleGuestLogin = () => {
+    setLoading(true);
+    setMessage("");
+    setError("");
+
+    setTimeout(() => {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: "guest@nextlevel.gg",
+          username: "Jaquan (Invité)",
+          firstName: "Jaquan",
+          lastName: "Guest",
+        })
+      );
+      window.dispatchEvent(new Event("authChange"));
+      setLoading(false);
+      setMessage("Connexion en tant qu'invité... Redirection...");
+      setTimeout(() => {
+        router.push("/profile");
+      }, 500);
+    }, 800);
+  };
+
   return (
     <main className={styles.authContainer}>
       <div className={styles.authCard}>
@@ -73,24 +97,35 @@ export default function Login() {
             </div>
           )}
 
-          <button type="submit" className={styles.authBtn} disabled={loading}>
-            <span>{loading ? "Connexion..." : "Se connecter"}</span>
-            {!loading && (
-              <svg
-                className={styles.authBtnIcon}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2.5"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                ></path>
-              </svg>
-            )}
-          </button>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <button type="submit" className={styles.authBtn} disabled={loading}>
+              <span>{loading ? "Connexion..." : "Se connecter"}</span>
+              {!loading && (
+                <svg
+                  className={styles.authBtnIcon}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  ></path>
+                </svg>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleGuestLogin}
+              className={styles.authBtnSecondary}
+              disabled={loading}
+            >
+              <span>Accès Démo / Invité</span>
+            </button>
+          </div>
         </form>
 
         <p className={styles.authFooterText}>
