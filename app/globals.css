@@ -782,10 +782,22 @@ body::after {
 
 /* Footer */
 .footer {
-  background: radial-gradient(circle at 50% 0%, rgba(15, 15, 25, 0.98) 0%, rgba(5, 5, 8, 1) 100%);
-  padding: 5rem 2rem 3rem;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 24px;
+  max-width: 1200px;
+  margin: 4rem auto 2rem;
+  padding: 4rem 3rem 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(59, 130, 246, 0.05);
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  .footer {
+    margin: 4rem 1.5rem 2rem;
+  }
 }
 
 /* Subtle glowing accent line separating sections */
@@ -1107,7 +1119,7 @@ body::after {
 .logo-container {
   overflow: hidden;
   width: 100%;
-  background: rgba(10, 10, 15, 0.6);
+  background: rgba(13, 13, 22, 0.7);
   backdrop-filter: blur(12px);
   border-top: 1px solid rgba(59, 130, 246, 0.15);
   border-bottom: 1px solid rgba(59, 130, 246, 0.15);
@@ -1130,12 +1142,12 @@ body::after {
 .logo-container::before {
   left: 0;
   top: 0;
-  background: linear-gradient(to right, #0a0a0f 0%, rgba(10, 10, 15, 0) 100%);
+  background: linear-gradient(to right, #050508 0%, rgba(5, 5, 8, 0) 100%);
 }
 .logo-container::after {
   right: 0;
   top: 0;
-  background: linear-gradient(to left, #0a0a0f 0%, rgba(10, 10, 15, 0) 100%);
+  background: linear-gradient(to left, #050508 0%, rgba(5, 5, 8, 0) 100%);
 }
 
 .logo-track {
@@ -1144,6 +1156,7 @@ body::after {
   animation: scroll-marquee 30s linear infinite;
   gap: 6rem;
   padding-left: 3rem;
+  align-items: center;
 }
 
 .logo-img {
@@ -1151,15 +1164,18 @@ body::after {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  filter: grayscale(1) brightness(0.6);
+}
+
+.logo-img img {
+  filter: brightness(0) invert(1);
   opacity: 0.6;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo-img:hover {
-  filter: grayscale(0) brightness(1.2);
+.logo-img:hover img {
+  filter: none;
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 @keyframes scroll-marquee {

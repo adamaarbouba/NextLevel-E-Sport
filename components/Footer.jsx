@@ -2,26 +2,24 @@ import Link from "next/link";
 
 export default function Footer() {
   const logos = [
-    { name: "team-liquid", url: "https://escharts.com/img/partners/landing/team-liquid.svg", isSVG: true },
-    { name: "esl", url: "https://escharts.com/img/partners/landing/esl.svg", isSVG: true },
-    { name: "ea", url: "https://escharts.com/img/partners/landing/electronic-arts.svg", isSVG: true },
-    { name: "fnatic", url: "https://escharts.com/img/partners/landing/fnatic.svg", isSVG: true },
-    { name: "red-bull", url: "https://escharts.com/img/partners/landing/red-bull.svg", isSVG: true },
-    { name: "amd", url: "https://escharts.com/img/partners/landing/amd.svg", isSVG: true },
-    { name: "valve", url: "https://escharts.com/img/partners/landing/valve.svg", isSVG: true },
-    { name: "esic", url: "https://escharts.com/img/partners/landing/esic.svg", isSVG: true },
-    { name: "razer", url: "https://cdn.simpleicons.org/razer/a0a0a0/ffffff" },
-    { name: "nvidia", url: "https://cdn.simpleicons.org/nvidia/a0a0a0/ffffff" },
-    { name: "intel", url: "https://cdn.simpleicons.org/intel/a0a0a0/ffffff" },
-    { name: "steelseries", url: "https://cdn.simpleicons.org/steelseries/a0a0a0/ffffff" },
-    { name: "logitechg", url: "https://cdn.simpleicons.org/logitechg/a0a0a0/ffffff" },
-    { name: "corsair", url: "https://cdn.simpleicons.org/corsair/a0a0a0/ffffff" },
-    { name: "msi", url: "https://cdn.simpleicons.org/msi/a0a0a0/ffffff" },
-    { name: "asus", url: "https://cdn.simpleicons.org/asus/a0a0a0/ffffff" },
-    { name: "playstation", url: "https://cdn.simpleicons.org/playstation/a0a0a0/ffffff" },
-    { name: "xbox", url: "https://cdn.simpleicons.org/xbox/a0a0a0/ffffff" },
-    { name: "twitch", url: "https://cdn.simpleicons.org/twitch/a0a0a0/ffffff" },
-    { name: "riotgames", url: "https://cdn.simpleicons.org/riotgames/a0a0a0/ffffff" }
+    { name: "team-liquid", url: "https://escharts.com/img/partners/landing/team-liquid.svg" },
+    { name: "esl", url: "https://escharts.com/img/partners/landing/esl.svg" },
+    { name: "ea", url: "https://escharts.com/img/partners/landing/electronic-arts.svg" },
+    { name: "fnatic", url: "https://escharts.com/img/partners/landing/fnatic.svg" },
+    { name: "red-bull", url: "https://escharts.com/img/partners/landing/red-bull.svg" },
+    { name: "amd", url: "https://escharts.com/img/partners/landing/amd.svg" },
+    { name: "valve", url: "https://escharts.com/img/partners/landing/valve.svg" },
+    { name: "esic", url: "https://escharts.com/img/partners/landing/esic.svg" },
+    { name: "razer", url: "https://cdn.simpleicons.org/razer" },
+    { name: "nvidia", url: "https://cdn.simpleicons.org/nvidia" },
+    { name: "intel", url: "https://cdn.simpleicons.org/intel" },
+    { name: "steelseries", url: "https://cdn.simpleicons.org/steelseries" },
+    { name: "corsair", url: "https://cdn.simpleicons.org/corsair" },
+    { name: "msi", url: "https://cdn.simpleicons.org/msi" },
+    { name: "asus", url: "https://cdn.simpleicons.org/asus" },
+    { name: "playstation", url: "https://cdn.simpleicons.org/playstation" },
+    { name: "twitch", url: "https://cdn.simpleicons.org/twitch" },
+    { name: "riotgames", url: "https://cdn.simpleicons.org/riotgames" }
   ];
 
   return (
