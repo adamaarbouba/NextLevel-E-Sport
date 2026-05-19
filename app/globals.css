@@ -2045,14 +2045,9 @@ body::after {
 
 /* Logo Circle Image Alignment Overrides to prevent boxed inside circle */
 .team-logo img,
-.spotlight-team img {
+.spotlight-team img,
+.podium-logo img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-}
-
-.podium-logo img {
-  width: 80% !important;
-  height: 80% !important;
-  object-fit: contain !important;
 }
