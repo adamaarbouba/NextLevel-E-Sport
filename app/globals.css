@@ -1281,3 +1281,230 @@ body::after {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+/* Hero Split Grid Layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1000px;
+}
+
+/* Spotlight Card Design */
+.spotlight-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: rgba(15, 15, 25, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 24px;
+  padding: 2rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 
+              0 0 40px rgba(59, 130, 246, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.spotlight-card:hover {
+  transform: translateY(-8px) rotateX(4deg) rotateY(-4deg);
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 
+              0 0 50px rgba(139, 92, 246, 0.3);
+}
+
+.spotlight-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0, 0, 0, 0) 60%);
+  pointer-events: none;
+}
+
+.spotlight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+  position: relative;
+}
+
+.spotlight-badge {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.spotlight-live-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ef4444;
+  animation: pulse 1.5s infinite;
+}
+
+.spotlight-body {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.spotlight-title {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.spotlight-game {
+  font-size: 0.875rem;
+  color: #3b82f6;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+
+.spotlight-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.spotlight-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spotlight-team img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 4px;
+  transition: all 0.3s ease;
+}
+
+.spotlight-card:hover .spotlight-team img {
+  border-color: #8b5cf6;
+  transform: scale(1.05);
+}
+
+.spotlight-team span {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.spotlight-vs {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #a0a0a0;
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.spotlight-btn {
+  display: block;
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.spotlight-btn:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+/* About Grid & Feature Cards */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(15, 15, 25, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateX(6px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.08);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card h4 {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.feature-card p {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .hero-grid, .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
