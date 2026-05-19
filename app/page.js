@@ -86,8 +86,8 @@ export default function Home() {
                     </div>
                     <span className="spotlight-vs">VS</span>
                     <div className="spotlight-team">
-                      <img src="/ShadowSyndicate.png" alt="Shadow Syndicate" />
-                      <span>SHD</span>
+                      <img src="/The Spartio.png" alt="The Spartio" />
+                      <span>SPA</span>
                     </div>
                   </div>
                   <Link href="/live" className="spotlight-btn">

@@ -8,7 +8,7 @@ const news = [
     date: "10 Jan 2026",
     author: "Staff E-Sport",
     excerpt: "Découvrez toutes les nouveautés concernant la nouvelle saison compétitive, y compris les nouveaux formats de tournois et les dotations accrues.",
-    image: "/NewPatch.png",
+    image: "/CyberpunkEsport.jpg",
     slug: "saison-2026-patch",
   },
   {
@@ -18,7 +18,7 @@ const news = [
     date: "08 Jan 2026",
     author: "Jean E-Sport",
     excerpt: "Après une finale d'anthologie, Phoenix Rising s'impose face à Shadow Syndicate et décroche le premier titre de l'année.",
-    image: "/PhoenxRisingWin.png",
+    image: "/esport-team-celebration-with-purple-neon.jpg",
     slug: "phoenix-rising-champions",
   },
   {
@@ -28,7 +28,7 @@ const news = [
     date: "05 Jan 2026",
     author: "Lucas News",
     excerpt: "Le marché des transferts s'agite avec l'arrivée de nouveaux talents au sein des équipes leaders de la ligue.",
-    image: "/Mercatto.png",
+    image: "/Team Eclipse annonce une nouvelle formation.jpg",
     slug: "mercato-transferts-news",
   },
 ];
