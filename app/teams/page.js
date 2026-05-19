@@ -64,6 +64,7 @@ export default function Teams() {
                         <span className="podium-stat-value">{team.losses}</span>
                       </div>
                     </div>
+                    <Link href={`/teams/${team.id}`} className="team-button" style={{ marginTop: "1rem", display: "inline-block", textDecoration: "none" }}>Voir le profil</Link>
                   </div>
                 ))}
               </div>
@@ -92,7 +93,7 @@ export default function Teams() {
                         <span className="stat-value">{team.losses}</span>
                       </div>
                     </div>
-                    <Link href="/profile" className="team-button">Voir le profil</Link>
+                    <Link href={`/teams/${team.id}`} className="team-button">Voir le profil</Link>
                   </div>
                 ))}
               </div>
