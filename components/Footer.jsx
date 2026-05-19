@@ -1,13 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState({ type: "", message: "" });
-
   const logos = [
     { name: "team-liquid", url: "https://escharts.com/img/partners/landing/team-liquid.svg" },
     { name: "esl", url: "https://escharts.com/img/partners/landing/esl.svg" },
@@ -28,40 +21,6 @@ export default function Footer() {
     { name: "twitch", url: "https://cdn.simpleicons.org/twitch" },
     { name: "riotgames", url: "https://cdn.simpleicons.org/riotgames" }
   ];
-
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-    if (!email) return;
-    setLoading(true);
-    setStatus({ type: "", message: "" });
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: "Visiteur Footer",
-          email: email,
-          subject: "Footer Newsletter",
-          message: "Inscription à la newsletter depuis le formulaire interactif du footer.",
-        }),
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        setStatus({ type: "success", message: "Inscription réussie !" });
-        setEmail("");
-      } else {
-        setStatus({ type: "error", message: data.error || "Une erreur est survenue." });
-      }
-    } catch (err) {
-      setStatus({ type: "error", message: "Impossible de se connecter au serveur." });
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <>
@@ -111,35 +70,6 @@ export default function Footer() {
                 La plateforme ultime pour les compétitions e-sport. Rejoignez des
                 milliers de joueurs passionnés, participez à des tournois mondiaux et forgez votre légende.
               </p>
-              
-              {/* Dynamic Newsletter Form */}
-              <div className="footer-newsletter-box">
-                <h4 className="footer-newsletter-title">
-                  Newsletter
-                </h4>
-                <form onSubmit={handleSubscribe} className="footer-newsletter-form">
-                  <input
-                    type="email"
-                    placeholder="Votre adresse email..."
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="footer-newsletter-input"
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="footer-newsletter-btn"
-                  >
-                    {loading ? "..." : "S'abonner"}
-                  </button>
-                </form>
-                {status.message && (
-                  <p className={`footer-newsletter-status ${status.type}`}>
-                    {status.message}
-                  </p>
-                )}
-              </div>
             </div>
             
             <div className="footer-column">
