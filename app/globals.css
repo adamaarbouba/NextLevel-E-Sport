@@ -1249,10 +1249,13 @@ body::after {
 }
 
 .Pf1 {
-  width: 25rem;
-  height: 45rem;
+  width: 100%;
+  max-width: 25rem;
+  height: auto;
+  aspect-ratio: 25 / 45;
   background-image: url(/Jaquan.jpg);
   background-position: center;
+  background-size: cover;
   margin: 0 auto 1.5rem;
   border-radius: 12px;
   overflow: hidden;
@@ -1260,10 +1263,13 @@ body::after {
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
 }
 .Pf2 {
-  width: 25rem;
-  height: 45rem;
+  width: 100%;
+  max-width: 25rem;
+  height: auto;
+  aspect-ratio: 25 / 45;
   background-image: url(/Lokaka.jpg);
   background-position: center;
+  background-size: cover;
   margin: 0 auto 1.5rem;
   border-radius: 12px;
   overflow: hidden;
@@ -1271,10 +1277,13 @@ body::after {
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
 }
 .Pf3 {
-  width: 25rem;
-  height: 45rem;
+  width: 100%;
+  max-width: 25rem;
+  height: auto;
+  aspect-ratio: 25 / 45;
   background-image: url(/aalal.jpg);
   background-position: center;
+  background-size: cover;
   margin: 0 auto 1.5rem;
   border-radius: 12px;
   overflow: hidden;
@@ -1286,6 +1295,8 @@ body::after {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 /* Hero Split Grid Layout */
@@ -2030,4 +2041,18 @@ body::after {
   .news-search-box {
     max-width: 100%;
   }
+}
+
+/* Logo Circle Image Alignment Overrides to prevent boxed inside circle */
+.team-logo img,
+.spotlight-team img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.podium-logo img {
+  width: 80% !important;
+  height: 80% !important;
+  object-fit: contain !important;
 }
