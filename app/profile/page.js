@@ -1,12 +1,52 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
 export default function Profile() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="section" style={{ paddingTop: "120px", minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ color: "#a0a0a0" }}>Chargement...</div>
+      </section>
+    );
+  }
+
+  if (!user) {
+    return (
+      <section className="section" style={{ paddingTop: "120px", minHeight: "80vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+        <h2 className="newsletter-title" style={{ marginBottom: "1rem" }}>Accès Restreint</h2>
+        <p style={{ color: "#a0a0a0", marginBottom: "2rem", textAlign: "center", maxWidth: "400px" }}>
+          Veuillez vous connecter ou vous inscrire pour accéder à votre profil e-sport.
+        </p>
+        <Link href="/login" className="btnS" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span>Connexion</span>
+        </Link>
+      </section>
+    );
+  }
+
   return (
-    <section id="news" className="section" style={{ paddingTop: "120px" }}>
+    <section id="profile" className="section" style={{ paddingTop: "120px", minHeight: "100vh" }}>
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Profile</h2>
-          <p className="section-description">Personal status / Team Status</p>
+          <h2 className="section-title">Profil Joueur</h2>
+          <p className="section-description">
+            Bienvenue, {user.username || user.firstName || "Player"} ! Voici votre statut personnel et d'équipe.
+          </p>
         </div>
-        <div className="container">
+        <div className="container" style={{ marginBottom: "3rem" }}>
           <div className="team-card">
             <div className="team-rank">
               <span className="rank-number">#1</span>
@@ -26,7 +66,7 @@ export default function Profile() {
                 <span className="stat-value">78%</span>
               </div>
               <div className="team-stat">
-                <span className="stat-label">Titels</span>
+                <span className="stat-label">Titres</span>
                 <span className="stat-value">2 times World Champions</span>
               </div>
               <div className="team-stat">
@@ -54,6 +94,8 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      
+      {/* Player roster cards */}
       <div className="ProfileC">
         <div className="team-card">
           <div className="team-rank">
@@ -70,7 +112,7 @@ export default function Profile() {
               <span className="stat-value">74%</span>
             </div>
             <div className="team-stat">
-              <span className="stat-label">Favorate Weapon</span>
+              <span className="stat-label">Favorite Weapon</span>
               <span className="stat-value">Vandal</span>
             </div>
             <div className="team-stat">
@@ -94,7 +136,7 @@ export default function Profile() {
               <span className="stat-value">74%</span>
             </div>
             <div className="team-stat">
-              <span className="stat-label">Favorate Weapon</span>
+              <span className="stat-label">Favorite Weapon</span>
               <span className="stat-value">Phantom</span>
             </div>
             <div className="team-stat">
@@ -118,7 +160,7 @@ export default function Profile() {
               <span className="stat-value">74%</span>
             </div>
             <div className="team-stat">
-              <span className="stat-label">Favorate Weapon</span>
+              <span className="stat-label">Favorite Weapon</span>
               <span className="stat-value">Vandal</span>
             </div>
             <div className="team-stat">
