@@ -37,6 +37,11 @@ export default function News() {
     return matchesTag && matchesSearch;
   });
 
+  // Determine if we show a featured article at the top (only on initial list view)
+  const isDefaultView = searchQuery.trim() === "" && selectedTag === "Tous";
+  const featuredArticle = isDefaultView && filteredNews.length > 0 ? filteredNews[0] : null;
+  const gridArticles = featuredArticle ? filteredNews.slice(1) : filteredNews;
+
   return (
     <section id="news" className={`${styles.section} ${styles.sectionDark}`}>
       <div className={styles.container}>
@@ -46,6 +51,42 @@ export default function News() {
             Suivez les derniers patchs, résultats de tournois et actualités de transferts.
           </p>
         </div>
+
+        {/* Featured Article Spotlight */}
+        {featuredArticle && !loading && (
+          <div className={styles.featuredCard}>
+            <div className={styles.featuredImage}>
+              <img src={featuredArticle.image} alt={featuredArticle.title} />
+              <span className={styles.featuredBadge}>{featuredArticle.category}</span>
+            </div>
+            <div className={styles.featuredContent}>
+              <div className={styles.featuredMeta}>
+                <span className={styles.featuredGameBadge}>{featuredArticle.game || "E-Sport"}</span>
+                <span>{featuredArticle.date}</span>
+                <span>•</span>
+                <span>{featuredArticle.readTime || "5 min read"}</span>
+              </div>
+              <h3 className={styles.featuredTitle}>{featuredArticle.title}</h3>
+              <p className={styles.featuredExcerpt}>{featuredArticle.excerpt}</p>
+              <Link href={`/news/article?slug=${featuredArticle.slug}`} className={styles.featuredBtn}>
+                Lire l'article
+                <svg
+                  style={{ width: "16px", height: "16px" }}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* Filters and Search Bar - UI Redesign & Rearrangement */}
         <div className={styles.newsFilterWrapper}>
@@ -89,13 +130,13 @@ export default function News() {
           <div style={{ textAlign: "center", color: "#a0a0a0", padding: "3rem" }}>
             Chargement des actualités...
           </div>
-        ) : filteredNews.length === 0 ? (
+        ) : gridArticles.length === 0 && !featuredArticle ? (
           <div style={{ textAlign: "center", color: "#a0a0a0", padding: "3rem" }}>
             Aucun article ne correspond à votre recherche.
           </div>
         ) : (
           <div className={styles.newsGrid}>
-            {filteredNews.map((item) => (
+            {gridArticles.map((item) => (
               <div key={item.id} className={styles.newsCard}>
                 <div className={styles.newsImage}>
                   <img src={item.image} alt={item.title} />
@@ -103,13 +144,13 @@ export default function News() {
                 </div>
                 <div className={styles.newsContent}>
                   <div className={styles.newsMeta}>
-                    <span>{item.date}</span>
+                    <span style={{ color: "#3b82f6", fontWeight: "700" }}>{item.game || "Général"}</span>
                     <span>•</span>
-                    <span>{item.author}</span>
+                    <span>{item.date}</span>
                   </div>
                   <h3 className={styles.newsTitle}>{item.title}</h3>
                   <p className={styles.newsDescription}>{item.excerpt}</p>
-                  <Link href="/news/article" className={styles.newsLink}>
+                  <Link href={`/news/article?slug=${item.slug}`} className={styles.newsLink}>
                     Lire la suite
                   </Link>
                 </div>
