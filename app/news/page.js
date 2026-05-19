@@ -1,246 +1,121 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function News() {
+  const [newsList, setNewsList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState("Tous");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        const res = await fetch("/api/news");
+        if (res.ok) {
+          const data = await res.json();
+          setNewsList(data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch news:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchNews();
+  }, []);
+
+  const categories = ["Tous", "Mise à jour", "Tournoi", "Transfert"];
+
+  const filteredNews = newsList.filter((item) => {
+    const matchesTag = selectedTag === "Tous" || item.category === selectedTag;
+    const matchesSearch =
+      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesTag && matchesSearch;
+  });
+
   return (
-    <section id="news" className="section" style={{ paddingTop: "120px" }}>
+    <section id="news" className="section section-dark" style={{ paddingTop: "120px", minHeight: "100vh" }}>
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Dernières actualités</h2>
+          <h2 className="section-title">Actualités E-Sport</h2>
           <p className="section-description">
-            Restez informé des dernières nouvelles
+            Suivez les derniers patchs, résultats de tournois et actualités de transferts.
           </p>
         </div>
-        <div className="news-grid">
-          {/* Card 1 */}
-          <div className="news-card">
-            <div className="news-image">
-              <img
-                src="/CyberpunkEsport.jpg"
-                alt="Final Showdown"
-              />
-              <div className="news-category">Tournois</div>
-            </div>
-            <div className="news-content">
-              <div className="news-meta">
-                <span className="news-date">3 Février 2025</span>
-                <span className="news-read-time">4 min de lecture</span>
-              </div>
-              <h3 className="news-title">
-                Final Showdown : une finale explosive à Tokyo
-              </h3>
-              <p className="news-excerpt">
-                Le match entre ShadowStrike et Neon Vipers a tenu toutes ses
-                promesses, avec une remontée spectaculaire en dernière manche.
-              </p>
-              <Link href="/news/article" className="news-link">
-                <span>Lire la suite</span>
-                <svg
-                  className="link-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </Link>
-            </div>
+
+        {/* Filters and Search Bar - UI Redesign & Rearrangement */}
+        <div className="news-filter-wrapper">
+          <div className="news-search-box">
+            <svg
+              className="news-search-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Rechercher des articles..."
+              className="news-search-input"
+            />
           </div>
 
-          {/* Card 2 */}
-          <div className="news-card">
-            <div className="news-image">
-              <img src="/NovaKeyboard.jpg" alt="Nova Player" />
-              <div className="news-category">Joueurs</div>
-            </div>
-            <div className="news-content">
-              <div className="news-meta">
-                <span className="news-date">21 Mars 2025</span>
-                <span className="news-read-time">5 min de lecture</span>
-              </div>
-              <h3 className="news-title">
-                Nova : portrait d’un prodige du clavier
-              </h3>
-              <p className="news-excerpt">
-                À seulement 17 ans, Nova fait déjà trembler les vétérans et
-                s'impose comme le futur visage de l'e-sport.
-              </p>
-              <Link href="/news/article" className="news-link">
-                <span>Lire la suite</span>
-                <svg
-                  className="link-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="news-card">
-            <div className="news-image">
-              <img
-                src="/esport-team-celebration-with-purple-neon.jpg"
-                alt="Phoenix Rising"
-              />
-              <div className="news-category">Équipes</div>
-            </div>
-            <div className="news-content">
-              <div className="news-meta">
-                <span className="news-date">10 Janvier 2025</span>
-                <span className="news-read-time">3 min de lecture</span>
-              </div>
-              <h3 className="news-title">Phoenix Rising remporte le Winter Cup</h3>
-              <p className="news-excerpt">
-                L'équipe européenne domine la compétition et s'impose comme
-                favorite pour le Championship Series.
-              </p>
-              <Link href="/news/article" className="news-link">
-                <span>Lire la suite</span>
-                <svg
-                  className="link-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="news-card">
-            <div className="news-image">
-              <img src="/Team Eclipse annonce une nouvelle formation.jpg" alt="Team Eclipse" />
-              <div className="news-category">Équipes</div>
-            </div>
-            <div className="news-content">
-              <div className="news-meta">
-                <span className="news-date">5 Avril 2025</span>
-                <span className="news-read-time">2 min de lecture</span>
-              </div>
-              <h3 className="news-title">
-                Team Eclipse annonce une nouvelle formation
-              </h3>
-              <p className="news-excerpt">
-                Avec deux nouveaux joueurs recrutés, Eclipse redéfinit son style
-                et vise haut pour la saison à venir.
-              </p>
-              <Link href="/news/article" className="news-link">
-                <span>Lire la suite</span>
-                <svg
-                  className="link-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 5 */}
-          <div className="news-card">
-            <div className="news-image">
-              <img src="/When AI boosts professional training.jpg" alt="Gaming AI" />
-              <div className="news-category">Technologie</div>
-            </div>
-            <div className="news-content">
-              <div className="news-meta">
-                <span className="news-date">28 Mai 2025</span>
-                <span className="news-read-time">3 min de lecture</span>
-              </div>
-              <h3 className="news-title">
-                Quand l’IA booste l'entraînement des pros
-              </h3>
-              <p className="news-excerpt">
-                Les intelligences artificielles révolutionnent la manière dont
-                les équipes s'entraînent et s'améliorent.
-              </p>
-              <Link href="/news/article" className="news-link">
-                <span>Lire la suite</span>
-                <svg
-                  className="link-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 6 */}
-          <div className="news-card">
-            <div className="news-image">
-              <img
-                src="/esports-world-cup-2025.jpg"
-                alt="Esports World Cup 2025"
-              />
-              <div className="news-category">eSport</div>
-            </div>
-            <div className="news-content">
-              <div className="news-meta">
-                <span className="news-date">15 Octobre 2025</span>
-                <span className="news-read-time">4 min de lecture</span>
-              </div>
-              <h3 className="news-title">
-                L’Esports World Cup 2025 électrise la scène mondiale
-              </h3>
-              <p className="news-excerpt">
-                Le plus grand tournoi d’eSport de l’année rassemble les
-                meilleures équipes de la planète pour un spectacle inoubliable à
-                Séoul.
-              </p>
-              <Link href="/news/article" className="news-link">
-                <span>Lire la suite</span>
-                <svg
-                  className="link-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </Link>
-            </div>
+          <div className="news-tag-pills">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedTag(cat)}
+                className={`news-tag-pill ${selectedTag === cat ? "active" : ""}`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
+
+        {loading ? (
+          <div style={{ textAlign: "center", color: "#a0a0a0", padding: "3rem" }}>
+            Chargement des actualités...
+          </div>
+        ) : filteredNews.length === 0 ? (
+          <div style={{ textAlign: "center", color: "#a0a0a0", padding: "3rem" }}>
+            Aucun article ne correspond à votre recherche.
+          </div>
+        ) : (
+          <div className="news-grid">
+            {filteredNews.map((item) => (
+              <div key={item.id} className="news-card">
+                <div className="news-image">
+                  <img src={item.image} alt={item.title} />
+                  <span className="news-badge">{item.category}</span>
+                </div>
+                <div className="news-content">
+                  <div className="news-meta">
+                    <span>{item.date}</span>
+                    <span>•</span>
+                    <span>{item.author}</span>
+                  </div>
+                  <h3 className="news-title">{item.title}</h3>
+                  <p className="news-description">{item.excerpt}</p>
+                  <Link href="/news/article" className="news-link">
+                    Lire la suite
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
