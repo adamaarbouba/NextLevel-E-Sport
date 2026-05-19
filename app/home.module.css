@@ -11,7 +11,7 @@
   position: absolute;
   inset: 0;
   background-position: center;
-  filter: brightness(0.3);
+  filter: brightness(0.25);
 }
 
 .heroOverlay {
@@ -19,10 +19,39 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0.15) 0%,
     rgba(139, 92, 246, 0.1) 50%,
-    rgba(236, 72, 153, 0.1) 100%
+    rgba(236, 72, 153, 0.15) 100%
   );
+}
+
+/* Gamiy Scanning Grid Background Overlay */
+.digitalGrid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.digitalGrid::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, transparent 0%, rgba(139, 92, 246, 0.15) 50%, transparent 100%);
+  animation: gridScan 6s infinite linear;
+}
+
+@keyframes gridScan {
+  0% { top: -100%; }
+  100% { top: 100%; }
 }
 
 .heroContainer {
@@ -50,27 +79,30 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.4);
   border-radius: 9999px;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #60a5fa;
   margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .badgeDot {
   width: 8px;
   height: 8px;
-  background: #3b82f6;
+  background: #ef4444;
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px #ef4444;
+  animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
 }
 
 .heroTitle {
@@ -90,6 +122,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  text-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
 }
 
 .heroDescription {
@@ -103,20 +136,21 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 2rem;
+  padding: 1rem 2.25rem;
   background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.125rem;
-  border-radius: 0.5rem;
+  border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
 }
 
 .heroButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
 }
 
 .buttonIcon {
@@ -130,10 +164,11 @@
   gap: 2rem;
   margin-top: 4rem;
   padding: 2rem;
-  background: rgba(15, 15, 25, 0.6);
+  background: rgba(15, 15, 25, 0.65);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .statItem {
@@ -143,10 +178,11 @@
 
 .statValue {
   font-family: var(--font-orbitron), sans-serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 800;
   color: #3b82f6;
   margin-bottom: 0.25rem;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
 }
 
 .statLabel {
@@ -162,7 +198,7 @@
   background: rgba(59, 130, 246, 0.2);
 }
 
-/* Spotlight Card Design */
+/* Gamiy Spotlight Card Design */
 .heroVisual {
   display: flex;
   justify-content: center;
@@ -175,22 +211,22 @@
   position: relative;
   width: 100%;
   max-width: 380px;
-  background: rgba(15, 15, 25, 0.7);
+  background: rgba(15, 15, 25, 0.8);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.35);
   border-radius: 24px;
   padding: 2rem;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 
-              0 0 40px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 
+              0 0 45px rgba(59, 130, 246, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .spotlightCard:hover {
   transform: translateY(-8px) rotateX(4deg) rotateY(-4deg);
   border-color: rgba(139, 92, 246, 0.6);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 
-              0 0 50px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), 
+              0 0 55px rgba(139, 92, 246, 0.4);
 }
 
 .spotlightGlow {
@@ -199,7 +235,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0, 0, 0, 0) 60%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(0, 0, 0, 0) 60%);
   pointer-events: none;
 }
 
@@ -219,7 +255,7 @@
   font-weight: 700;
   text-transform: uppercase;
   padding: 0.4rem 1rem;
-  border-radius: 999px;
+  border-radius: 8px;
   letter-spacing: 0.05em;
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
 }
@@ -254,7 +290,46 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Simulated Gamiy Score Scoreline */
+.spotlightScoreline {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scoreTime {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 0.8rem;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.scorePill {
+  font-family: var(--font-orbitron), sans-serif;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c084fc;
+  font-size: 1.15rem;
+  font-weight: 900;
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}
+
+.mapIndicator {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .spotlightTeams {
@@ -270,6 +345,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  width: 80px;
 }
 
 .spotlightTeam img {
@@ -320,6 +396,253 @@
   background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
   transform: translateY(-2px);
+}
+
+/* Home Section Styles (Tournaments & News) */
+.homeSection {
+  background: #0f0f19;
+  padding: 6rem 0;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.sectionTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subTitle {
+  font-size: 0.85rem;
+  color: #3b82f6;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.mainTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.viewAllLink {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewAllLink:hover {
+  color: #3b82f6;
+}
+
+/* Horizontal Tournament Scroll track */
+.tournamentsScroll {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+}
+
+/* Custom glow scrollbar for games theme */
+.tournamentsScroll::-webkit-scrollbar {
+  height: 6px;
+}
+.tournamentsScroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 999px;
+}
+.tournamentsScroll::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 999px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+.tournamentsScroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+.miniCard {
+  flex: 0 0 320px;
+  background: rgba(15, 15, 25, 0.7);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.miniCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+}
+
+.miniCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.miniGame {
+  font-size: 0.75rem;
+  color: #3b82f6;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.miniStatus {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.miniStatus.live {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.miniStatus.upcoming {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.miniTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.miniPrize {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.miniLink {
+  margin-top: auto;
+  text-align: center;
+  padding: 0.6rem;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.miniLink:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Home News Grid */
+.homeNewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.newsCard {
+  background: rgba(15, 15, 25, 0.7);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.newsCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.newsCardImage {
+  height: 180px;
+  position: relative;
+}
+
+.newsCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(15, 15, 25, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.newsCardContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.newsCardTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.newsCardExcerpt {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.newsCardLink {
+  margin-top: auto;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.3s ease;
+}
+
+.newsCardLink:hover {
+  gap: 0.6rem;
 }
 
 /* About Grid & Feature Cards */
@@ -402,22 +725,30 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 1.5rem;
-  background: rgba(15, 15, 25, 0.6);
+  background: rgba(15, 15, 25, 0.65);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(59, 130, 246, 0.15);
   border-radius: 16px;
   transition: all 0.3s ease;
+  color: #a0a0a0;
 }
 
 .featureCard:hover {
-  border-color: rgba(59, 130, 246, 0.4);
+  border-color: rgba(59, 130, 246, 0.45);
   transform: translateX(6px);
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.08);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
 }
 
 .featureIcon {
-  font-size: 2rem;
   margin-bottom: 0.5rem;
+  color: #3b82f6;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.featureCard:hover .featureIcon {
+  color: #8b5cf6;
+  transform: scale(1.15);
 }
 
 .featureCard h4 {
@@ -441,6 +772,9 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+  .homeNewsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -454,5 +788,8 @@
   .statDivider {
     width: 100%;
     height: 1px;
+  }
+  .homeNewsGrid {
+    grid-template-columns: 1fr;
   }
 }
