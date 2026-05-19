@@ -813,7 +813,7 @@ body::after {
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.8fr 1fr 1fr;
   gap: 4rem;
   padding: 1rem 0 3rem;
 }
