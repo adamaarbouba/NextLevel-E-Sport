@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import styles from "./teams.module.css";
 
 export default function Teams() {
   const [teams, setTeams] = useState([]);
@@ -28,11 +29,11 @@ export default function Teams() {
   const remainingTeams = teams.filter((t) => t.rank > 3);
 
   return (
-    <section id="teams" className="section section-dark" style={{ paddingTop: "120px", minHeight: "100vh" }}>
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Podium & Leaderboard</h2>
-          <p className="section-description">
+    <section className={styles.teamsSection}>
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Podium & Leaderboard</h2>
+          <p className={styles.sectionDescription}>
             Les meilleures équipes de la plateforme s'affrontent pour le sommet.
           </p>
         </div>
@@ -45,26 +46,28 @@ export default function Teams() {
           <>
             {/* Top 3 Podium Grid Layout */}
             {podiumTeams.length > 0 && (
-              <div className="podium-section">
+              <div className={styles.podiumSection}>
                 {podiumTeams.map((team) => (
-                  <div key={team.id} className={`podium-card rank-${team.rank}`}>
-                    <div className="podium-place">{team.rank}</div>
-                    <div className="podium-logo">
+                  <div key={team.id} className={`${styles.podiumCard} ${styles[`rank${team.rank}`]}`}>
+                    <div className={styles.podiumPlace}>{team.rank}</div>
+                    <div className={styles.podiumLogo}>
                       <img src={team.logo} alt={team.name} />
                     </div>
-                    <h3 className="podium-name">{team.name}</h3>
-                    <p className="podium-game">{team.game}</p>
-                    <div className="podium-stats">
-                      <div className="podium-stat">
-                        <span className="podium-stat-label">Victoires</span>
-                        <span className="podium-stat-value">{team.wins}</span>
+                    <h3 className={styles.podiumName}>{team.name}</h3>
+                    <p className={styles.podiumGame}>{team.game}</p>
+                    <div className={styles.podiumStats}>
+                      <div className={styles.podiumStat}>
+                        <span className={styles.podiumStatLabel}>Victoires</span>
+                        <span className={styles.podiumStatValue}>{team.wins}</span>
                       </div>
-                      <div className="podium-stat">
-                        <span className="podium-stat-label">Défaites</span>
-                        <span className="podium-stat-value">{team.losses}</span>
+                      <div className={styles.podiumStat}>
+                        <span className={styles.podiumStatLabel}>Défaites</span>
+                        <span className={styles.podiumStatValue}>{team.losses}</span>
                       </div>
                     </div>
-                    <Link href={`/teams/${team.id}`} className="team-button" style={{ marginTop: "1rem", display: "inline-block", textDecoration: "none" }}>Voir le profil</Link>
+                    <Link href={`/teams/${team.id}`} className={styles.teamButton}>
+                      Voir le profil
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -72,28 +75,30 @@ export default function Teams() {
 
             {/* Leaderboard list for ranks 4+ */}
             {remainingTeams.length > 0 && (
-              <div className="teams-grid">
+              <div className={styles.teamsGrid}>
                 {remainingTeams.map((team) => (
-                  <div key={team.id} className="team-card">
-                    <div className="team-rank">
-                      <span className="rank-number">#{team.rank}</span>
+                  <div key={team.id} className={styles.teamCard}>
+                    <div className={styles.teamRank}>
+                      <span className={styles.rankNumber}>#{team.rank}</span>
                     </div>
-                    <div className="team-logo">
+                    <div className={styles.teamLogo}>
                       <img src={team.logo} alt={team.name} />
                     </div>
-                    <h3 className="team-name">{team.name}</h3>
-                    <p className="team-game">{team.game} • EU</p>
-                    <div className="team-stats">
-                      <div className="team-stat">
-                        <span className="stat-label">Victoires</span>
-                        <span className="stat-value">{team.wins}</span>
+                    <h3 className={styles.teamName}>{team.name}</h3>
+                    <p className={styles.teamGame}>{team.game} • EU</p>
+                    <div className={styles.teamStats}>
+                      <div className={styles.teamStat}>
+                        <span className={styles.statLabel}>Victoires</span>
+                        <span className={styles.statValue}>{team.wins}</span>
                       </div>
-                      <div className="team-stat">
-                        <span className="stat-label">Défaites</span>
-                        <span className="stat-value">{team.losses}</span>
+                      <div className={styles.teamStat}>
+                        <span className={styles.statLabel}>Défaites</span>
+                        <span className={styles.statValue}>{team.losses}</span>
                       </div>
                     </div>
-                    <Link href={`/teams/${team.id}`} className="team-button">Voir le profil</Link>
+                    <Link href={`/teams/${team.id}`} className={styles.teamButton}>
+                      Voir le profil
+                    </Link>
                   </div>
                 ))}
               </div>
