@@ -1,9 +1,177 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
     <>
+      {/* Infinite Partner Logos Marquee Section (Above Footer) */}
+      <div className="logo-container">
+        <div className="logo-track">
+          {/* Set 1 */}
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/team-liquid.svg"
+              height="30"
+              width="30"
+              alt="team liquid"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/esl.svg"
+              height="20"
+              width="66"
+              alt="esl"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/electronic-arts.svg"
+              height="28"
+              width="29"
+              alt="ea"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/fnatic.svg"
+              height="64"
+              width="64"
+              alt="fnatic"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/red-bull.svg"
+              height="26"
+              width="53"
+              alt="red bull"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/amd.svg"
+              height="24"
+              width="200"
+              alt="amd"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/valve.svg"
+              height="20"
+              width="73"
+              alt="valve"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/esic.svg"
+              height="26"
+              width="39"
+              alt="esic"
+            />
+          </div>
+
+          {/* Set 2 (Duplicated for seamless loop animation) */}
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/team-liquid.svg"
+              height="30"
+              width="30"
+              alt="team liquid"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/esl.svg"
+              height="20"
+              width="66"
+              alt="esl"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/electronic-arts.svg"
+              height="28"
+              width="29"
+              alt="ea"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/fnatic.svg"
+              height="64"
+              width="64"
+              alt="fnatic"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/red-bull.svg"
+              height="26"
+              width="53"
+              alt="red bull"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/amd.svg"
+              height="24"
+              width="200"
+              alt="amd"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/valve.svg"
+              height="20"
+              width="73"
+              alt="valve"
+            />
+          </div>
+          <div className="logo-img">
+            <img
+              loading="lazy"
+              decoding="async"
+              src="https://escharts.com/img/partners/landing/esic.svg"
+              height="26"
+              width="39"
+              alt="esic"
+            />
+          </div>
+        </div>
+      </div>
+
       <footer id="contact" className="footer">
         <div className="container">
           <div className="footer-content">
@@ -16,7 +184,7 @@ export default function Footer() {
               </div>
               <p className="footer-tagline">
                 La plateforme ultime pour les compétitions e-sport. Rejoignez des
-                milliers de joueurs passionnés.
+                milliers de joueurs passionnés, participez à des tournois mondiaux et forgez votre légende.
               </p>
               <div className="social-links">
                 <a href="#" className="social-link" aria-label="Twitter">
@@ -41,6 +209,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
+            
             <div className="footer-column">
               <h3 className="footer-heading">Plateforme</h3>
               <ul className="footer-list">
@@ -50,21 +219,27 @@ export default function Footer() {
                 <li>
                   <Link href="/teams" className="footer-link">Équipes</Link>
                 </li>
-                <li><a href="#" className="footer-link">Classements</a></li>
-                <li><a href="#" className="footer-link">Calendrier</a></li>
+                <li>
+                  <Link href="/teams" className="footer-link">Classements</Link>
+                </li>
+                <li>
+                  <Link href="/live" className="footer-link">Calendrier & Live</Link>
+                </li>
               </ul>
             </div>
+
             <div className="footer-column">
               <h3 className="footer-heading">Communauté</h3>
               <ul className="footer-list">
-                <li><a href="#" className="footer-link">Forum</a></li>
-                <li><a href="#" className="footer-link">Discord</a></li>
+                <li><a href="#" className="footer-link">Forum & Events</a></li>
+                <li><a href="https://discord.com" className="footer-link" target="_blank" rel="noreferrer">Discord Guild</a></li>
                 <li>
                   <Link href="/news" className="footer-link">Actualités</Link>
                 </li>
-                <li><a href="#" className="footer-link">Support</a></li>
+                <li><a href="#" className="footer-link">Support Joueurs</a></li>
               </ul>
             </div>
+
             <div className="footer-column">
               <h3 className="footer-heading">Légal</h3>
               <ul className="footer-list">
@@ -72,104 +247,25 @@ export default function Footer() {
                   <a href="#" className="footer-link">Conditions d'utilisation</a>
                 </li>
                 <li>
-                  <a href="#" className="footer-link">Politique de confidentialité</a>
+                  <a href="#" className="footer-link">Politique cookies</a>
                 </li>
-                <li><a href="#" className="footer-link">Règlement</a></li>
                 <li>
-                  <Link href="/contact" className="footer-link">Contact</Link>
+                  <a href="#" className="footer-link">Règlement général</a>
+                </li>
+                <li>
+                  <Link href="/contact" className="footer-link">Contactez-nous</Link>
                 </li>
               </ul>
             </div>
           </div>
+
           <div className="footer-bottom">
             <p className="footer-copyright">
-              © 2025 NextLevel E-Sport. Tous droits réservés.
+              © 2026 NextLevel E-Sport. Tous droits réservés.
             </p>
           </div>
         </div>
       </footer>
-      <div className="logo-container">
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/team-liquid.svg"
-            height="30"
-            width="30"
-            alt="team liquid"
-          />
-        </div>
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/esl.svg"
-            height="20"
-            width="66"
-            alt="esl"
-          />
-        </div>
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/electronic-arts.svg"
-            height="28"
-            width="29"
-            alt="ea"
-          />
-        </div>
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/fnatic.svg"
-            height="64"
-            width="64"
-            alt="fnatic"
-          />
-        </div>
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/red-bull.svg"
-            height="26"
-            width="53"
-            alt="red bull"
-          />
-        </div>
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/amd.svg"
-            height="24"
-            width="200"
-            alt="amd"
-          />
-        </div>
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/valve.svg"
-            height="20"
-            width="73"
-            alt="valve"
-          />
-        </div>
-        <div className="logo-img">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="https://escharts.com/img/partners/landing/esic.svg"
-            height="26"
-            width="39"
-            alt="esic"
-          />
-        </div>
-      </div>
     </>
   );
 }
