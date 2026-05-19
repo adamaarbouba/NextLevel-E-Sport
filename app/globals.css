@@ -782,51 +782,59 @@ body::after {
 
 /* Footer */
 .footer {
-  background: rgba(7, 7, 10, 0.98);
-  padding: 4rem 4rem 2rem;
+  background: radial-gradient(circle at 50% 0%, rgba(15, 15, 25, 0.98) 0%, rgba(5, 5, 8, 1) 100%);
+  padding: 5rem 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glowing accent line separating sections */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.4) 50%, transparent 100%);
 }
 
 .footer-content {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  padding: 24px;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 4rem;
+  padding: 1rem 0 3rem;
 }
 
 .footer-brand {
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-tagline {
   color: #a0a0a0;
-  margin: 1.5rem 0;
-  line-height: 1.6;
+  margin: 1rem 0 2rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: 0.5rem;
-  color: #3b82f6;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background: rgba(59, 130, 246, 0.2);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-  transform: translateY(-2px);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #a0a0a0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link svg {
@@ -834,13 +842,59 @@ body::after {
   height: 20px;
 }
 
+/* Custom social colors on hover */
+.social-link.twitter:hover {
+  color: #ffffff;
+  border-color: #1da1f2;
+  background: rgba(29, 161, 242, 0.1);
+  box-shadow: 0 0 20px rgba(29, 161, 242, 0.4);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.social-link.discord:hover {
+  color: #ffffff;
+  border-color: #5865f2;
+  background: rgba(88, 101, 242, 0.1);
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.social-link.twitch:hover {
+  color: #ffffff;
+  border-color: #9146ff;
+  background: rgba(145, 70, 255, 0.1);
+  box-shadow: 0 0 20px rgba(145, 70, 255, 0.4);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.social-link.youtube:hover {
+  color: #ffffff;
+  border-color: #ff0000;
+  background: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  transform: translateY(-4px) scale(1.05);
+}
+
 .footer-heading {
   font-family: var(--font-orbitron), sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
 }
 
 .footer-list {
@@ -848,30 +902,46 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 0.75rem;
-  padding-bottom: 1rem;
+  gap: 1rem;
 }
 
 .footer-link {
   color: #a0a0a0;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-link::before {
+  content: "»";
+  color: #3b82f6;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #3b82f6;
+  color: #ffffff;
+  transform: translateX(6px);
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .footer-bottom {
   padding-top: 2rem;
-  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
   text-align: center;
 }
 
 .footer-copyright {
-  color: #a0a0a0;
+  color: #707070;
   font-size: 0.875rem;
 }
 
