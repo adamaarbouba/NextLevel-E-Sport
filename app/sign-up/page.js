@@ -48,116 +48,125 @@ export default function SignUp() {
   };
 
   return (
-    <main className="main" style={{ minHeight: "90vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-      <h2 className="newsletter-title" style={{ marginBottom: "2rem" }}>Sign Up</h2>
-      <div className="sign-up" style={{ width: "100%", maxWidth: "550px" }}>
-        <form onSubmit={handleSignUp} className="in-block" style={{ width: "100%" }}>
-          <div className="Sign-2block">
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="First Name"
-              className="input-short"
-              required
-            />
+    <main className="auth-container">
+      <div className="auth-card" style={{ maxWidth: "550px" }}>
+        <h2 className="auth-title">Inscription</h2>
 
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="Last Name"
-              className="input-short"
-              required
-            />
+        <form onSubmit={handleSignUp} className="auth-form">
+          <div className="auth-row">
+            <div className="auth-input-group">
+              <label className="auth-label">Prénom</label>
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="Votre prénom"
+                className="auth-input"
+                required
+              />
+            </div>
+
+            <div className="auth-input-group">
+              <label className="auth-label">Nom</label>
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Votre nom de famille"
+                className="auth-input"
+                required
+              />
+            </div>
           </div>
-          <div className="Sign-block" style={{ marginTop: "1rem" }}>
+
+          <div className="auth-input-group">
+            <label className="auth-label">Adresse Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Example@email.com"
-              className="input-long"
+              placeholder="Exemple: playerone@gmail.com"
+              className="auth-input"
               required
             />
           </div>
-          <div className="Sign-block" style={{ marginTop: "1rem" }}>
+
+          <div className="auth-input-group">
+            <label className="auth-label">Mot de passe</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Your password"
-              className="input-long"
+              placeholder="Créer un mot de passe robuste"
+              className="auth-input"
               required
             />
           </div>
-          <div className="Sign-block" style={{ marginTop: "1rem" }}>
+
+          <div className="auth-input-group">
+            <label className="auth-label">Confirmer le mot de passe</label>
             <input
               type="password"
               value={verifyPassword}
               onChange={(e) => setVerifyPassword(e.target.value)}
-              placeholder="Verify Your Password"
-              className="input-long"
+              placeholder="Répétez votre mot de passe"
+              className="auth-input"
               required
             />
           </div>
 
           {error && (
-            <div style={{ color: "#ef4444", fontSize: "0.875rem", marginTop: "1rem", textAlign: "center", fontWeight: "bold" }}>
+            <div className="auth-status error">
               {error}
             </div>
           )}
 
           {message && (
-            <div style={{ color: "#3b82f6", fontSize: "0.875rem", marginTop: "1rem", textAlign: "center", fontWeight: "bold" }}>
+            <div className="auth-status success">
               {message}
             </div>
           )}
 
-          <div className="blocking" style={{ marginTop: "2rem" }}>
-            <button type="submit" className="btnS" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
-              <span>{loading ? "Signing up..." : "Sign Up"}</span>
-              {!loading && (
-                <svg
-                  className="button-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  ></path>
-                </svg>
-              )}
-            </button>
-          </div>
-          
-          <div className="blocking" style={{ marginTop: "1.5rem" }}>
-            <p className="p-in-S">Already signed up ?</p>
-
-            <Link href="/login">
-              <button type="button" className="btnS" style={{ width: "100%", marginTop: "0.5rem" }}>
-                <span>Login</span>
-                <svg
-                  className="button-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  ></path>
-                </svg>
-              </button>
-            </Link>
-          </div>
+          <button type="submit" className="auth-btn" disabled={loading}>
+            <span>{loading ? "Inscription..." : "S'inscrire"}</span>
+            {!loading && (
+              <svg
+                className="auth-btn-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2.5"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                ></path>
+              </svg>
+            )}
+          </button>
         </form>
+
+        <p className="auth-footer-text">
+          Déjà inscrit ?{" "}
+          <Link href="/login" className="auth-link">
+            Se connecter
+            <svg
+              className="auth-btn-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              style={{ width: "16px", height: "16px" }}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              ></path>
+            </svg>
+          </Link>
+        </p>
       </div>
     </main>
   );

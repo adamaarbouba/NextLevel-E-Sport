@@ -2273,7 +2273,7 @@ body::after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1.5rem;
+  padding: 120px 1.5rem 4rem;
   position: relative;
   width: 100%;
 }
