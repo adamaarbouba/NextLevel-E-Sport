@@ -1,6 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const links = [
+    { name: "Teams", href: "/teams" },
+    { name: "News", href: "/news" },
+    { name: "Tournament", href: "/tournaments" },
+    { name: "Sign-Up", href: "/sign-up" },
+  ];
+
   return (
     <header className="header">
       <div className="container">
@@ -12,10 +24,19 @@ export default function Header() {
             </Link>
           </div>
           <nav className="nav">
-            <Link href="/teams" className="nav-link">Teams</Link>
-            <Link href="/news" className="nav-link">News</Link>
-            <Link href="/tournaments" className="nav-link">Tournament</Link>
-            <Link href="/sign-up" className="nav-link">Sign-Up</Link>
+            {links.map((link) => {
+              // Exact match or subpath match (e.g. /news/article matches /news)
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`nav-link ${isActive ? "active" : ""}`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       </div>

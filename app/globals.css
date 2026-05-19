@@ -107,6 +107,17 @@ body {
   width: 100%;
 }
 
+.nav-link.active {
+  color: #3b82f6;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+}
+
 /* Hero Section */
 .hero {
   position: relative;
