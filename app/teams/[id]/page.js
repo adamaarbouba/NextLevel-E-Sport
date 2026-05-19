@@ -12,11 +12,12 @@ export default function TeamProfile({ params }) {
   useEffect(() => {
     async function fetchTeam() {
       try {
-        const res = await fetch("/api/teams");
+        const res = await fetch(`/api/teams/${id}`);
         if (res.ok) {
           const data = await res.json();
-          const found = data.find((t) => t.id === parseInt(id));
-          setTeam(found || null);
+          setTeam(data);
+        } else {
+          setTeam(null);
         }
       } catch (err) {
         console.error("Failed to fetch team:", err);
@@ -53,35 +54,7 @@ export default function TeamProfile({ params }) {
     );
   }
 
-  // Generate teammates dynamically
-  const getTeammates = (teamId) => {
-    if (teamId === 1) {
-      return [
-        { name: "Jaquan", role: "Duelist / Capitaine", winrate: "74%", kda: "1.17", img: "/Jaquan.jpg", rank: "#1" },
-        { name: "Lokaka", role: "Controller", winrate: "70%", kda: "1.09", img: "/Lokaka.jpg", rank: "#2" },
-        { name: "Aalal", role: "Initiator", winrate: "68%", kda: "1.05", img: "/aalal.jpg", rank: "#3" }
-      ];
-    }
-
-    const roles = {
-      "Valorant": ["Duelist", "Controller", "Initiator"],
-      "League of Legends": ["Midlaner", "Jungler", "Ad Carry"],
-      "Counter Strike 2": ["AWPer", "Entry Fragger", "In-Game Leader"],
-      "Overwatch 2": ["DPS", "Tank", "Support"],
-      "Rocket League": ["Striker", "Midfielder", "Defender"],
-      "Marvel Rivals": ["Vanguard", "Duelist", "Strategist"]
-    };
-
-    const gameRoles = roles[team.game] || ["Player 1", "Player 2", "Player 3"];
-    
-    return [
-      { name: `${team.name} Alpha`, role: gameRoles[0], winrate: "64%", kda: "1.15", img: "/placeholder-user.jpg", rank: "#1" },
-      { name: `${team.name} Beta`, role: gameRoles[1], winrate: "61%", kda: "1.08", img: "/placeholder-user.jpg", rank: "#2" },
-      { name: `${team.name} Gamma`, role: gameRoles[2], winrate: "58%", kda: "0.98", img: "/placeholder-user.jpg", rank: "#3" }
-    ];
-  };
-
-  const roster = getTeammates(team.id);
+  const roster = team.roster || [];
   const winrate = Math.round((team.wins / (team.wins + team.losses)) * 100);
 
   return (

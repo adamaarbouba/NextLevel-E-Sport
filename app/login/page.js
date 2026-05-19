@@ -19,16 +19,31 @@ export default function Login() {
     setMessage("");
     setError("");
 
-    // Simulate API delay
-    setTimeout(() => {
-      localStorage.setItem("user", JSON.stringify({ email, username: email.split("@")[0] }));
-      window.dispatchEvent(new Event("authChange"));
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (res.ok) {
+        const userData = await res.json();
+        localStorage.setItem("user", JSON.stringify(userData));
+        window.dispatchEvent(new Event("authChange"));
+        setMessage("Connexion réussie ! Redirection...");
+        setTimeout(() => {
+          router.push("/profile");
+        }, 500);
+      } else {
+        const errData = await res.json();
+        setError(errData.message || "Email ou mot de passe incorrect.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Impossible de contacter le serveur d'authentification.");
+    } finally {
       setLoading(false);
-      setMessage("Connexion réussie ! Redirection...");
-      setTimeout(() => {
-        router.push("/profile");
-      }, 500);
-    }, 1000);
+    }
   };
 
   const handleGuestLogin = () => {

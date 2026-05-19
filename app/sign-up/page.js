@@ -28,24 +28,31 @@ export default function SignUp() {
 
     setLoading(true);
 
-    // Simulate API delay
-    setTimeout(() => {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          email,
-          username: `${firstName} ${lastName}`,
-          firstName,
-          lastName,
-        })
-      );
-      window.dispatchEvent(new Event("authChange"));
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ firstName, lastName, email, password }),
+      });
+
+      if (res.ok) {
+        const userData = await res.json();
+        localStorage.setItem("user", JSON.stringify(userData));
+        window.dispatchEvent(new Event("authChange"));
+        setMessage("Inscription réussie ! Redirection...");
+        setTimeout(() => {
+          router.push("/profile");
+        }, 500);
+      } else {
+        const errData = await res.json();
+        setError(errData.message || "Erreur lors de la création du compte.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Impossible de contacter le serveur d'authentification.");
+    } finally {
       setLoading(false);
-      setMessage("Inscription réussie ! Redirection...");
-      setTimeout(() => {
-        router.push("/profile");
-      }, 500);
-    }, 1000);
+    }
   };
 
   return (
