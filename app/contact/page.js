@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./contact.module.css";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -39,40 +40,40 @@ export default function Contact() {
   };
 
   return (
-    <main className="main" style={{ minHeight: "85vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-      <h2 className="newsletter-title" style={{ marginBottom: "0.5rem" }}>Contact Us</h2>
-      <p className="newsletter-description" style={{ marginBottom: "2.5rem", maxWidth: "500px", textAlign: "center" }}>
+    <main className={styles.contactMain}>
+      <h2 className={styles.title}>Contact Us</h2>
+      <p className={styles.description}>
         Votre avis nous intéresse. Envoyez-nous un message et notre équipe vous répondra dans les plus brefs délais.
       </p>
 
-      <form onSubmit={handleSubmit} className="newsletter-form" style={{ width: "100%", maxWidth: "500px" }}>
-        <div className="Block">
-          <div className="Sign-block" style={{ marginBottom: "1rem" }}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.block}>
+          <div className={styles.signBlock}>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your Name"
-              className="input-long"
+              className={styles.inputLong}
               required
             />
           </div>
-          <div className="Sign-block" style={{ marginBottom: "1rem" }}>
+          <div className={styles.signBlock}>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your Email"
-              className="input-long"
+              className={styles.inputLong}
               required
             />
           </div>
-          <div className="Contact-block">
+          <div className={styles.contactBlock}>
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Your Message..."
-              className="input-contact"
+              className={styles.inputContact}
               rows={6}
               required
             ></textarea>
@@ -90,12 +91,12 @@ export default function Contact() {
             </div>
           )}
 
-          <div className="blocking" style={{ marginTop: "2rem" }}>
-            <button type="submit" className="btnS" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
+          <div className={styles.blocking}>
+            <button type="submit" className={styles.btnS} disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
               <span>{loading ? "Sending..." : "Submit"}</span>
               {!loading && (
                 <svg
-                  className="button-icon"
+                  className={styles.buttonIcon}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

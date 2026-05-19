@@ -1,0 +1,233 @@
+.liveGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+}
+
+.streamContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.streamMeta {
+  background: rgba(15, 15, 25, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.streamMetaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.streamTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.streamStatusBadges {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.badgeLiveStream {
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badgeLiveStream::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.badgeViewers {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.streamDescription {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.5;
+}
+
+/* Interactive Live Chat Sidebar styling */
+.liveChatPanel {
+  background: rgba(15, 15, 25, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.chatHeader {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.chatHeaderTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chatMessages {
+  flex-grow: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chatMessages::-webkit-scrollbar {
+  width: 6px;
+}
+.chatMessages::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chatMessages::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 3px;
+}
+.chatMessages::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+.chatMessage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border-left: 2px solid transparent;
+}
+
+.chatMessage.self {
+  border-left-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.chatMessageMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.chatUser {
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.chatMessage.self .chatUser {
+  color: #a78bfa;
+}
+
+.chatTime {
+  color: #606060;
+}
+
+.chatText {
+  font-size: 0.875rem;
+  color: #e0e0e0;
+  word-break: break-word;
+}
+
+.chatFooter {
+  padding: 1rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.chatInputForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chatInput {
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.chatInput:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
+.chatSendBtn {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chatSendBtn:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .liveGrid {
+    grid-template-columns: 1fr;
+  }
+}

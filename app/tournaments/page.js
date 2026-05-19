@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import styles from "./tournaments.module.css";
 
 export default function Tournaments() {
   const [tournaments, setTournaments] = useState([]);
@@ -31,32 +32,32 @@ export default function Tournaments() {
   });
 
   return (
-    <section id="tournaments" className="section" style={{ paddingTop: "120px", minHeight: "100vh" }}>
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Tournaments</h2>
-          <p className="section-description">
+    <section id="tournaments" className={styles.section}>
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Tournaments</h2>
+          <p className={styles.sectionDescription}>
             Watch the Best E-Sport Battles Unfold Infront Of You Live on NextLevel E-Sport Now.
           </p>
         </div>
 
         {/* Tab Filters */}
-        <div className="tab-filters">
+        <div className={styles.tabFilters}>
           <button
             onClick={() => setFilter("all")}
-            className={`tab-btn ${filter === "all" ? "active" : ""}`}
+            className={`${styles.tabBtn} ${filter === "all" ? styles.active : ""}`}
           >
             Tous
           </button>
           <button
             onClick={() => setFilter("live")}
-            className={`tab-btn ${filter === "live" ? "active" : ""}`}
+            className={`${styles.tabBtn} ${filter === "live" ? styles.active : ""}`}
           >
             En Direct
           </button>
           <button
             onClick={() => setFilter("upcoming")}
-            className={`tab-btn ${filter === "upcoming" ? "active" : ""}`}
+            className={`${styles.tabBtn} ${filter === "upcoming" ? styles.active : ""}`}
           >
             À Venir
           </button>
@@ -71,26 +72,26 @@ export default function Tournaments() {
             Aucun tournoi trouvé pour cette catégorie.
           </div>
         ) : (
-          <div className="tournaments-grid">
+          <div className={styles.tournamentsGrid}>
             {filteredTournaments.map((tournament) => (
-              <div key={tournament.id} className="tournament-card">
-                <div className="tournament-image">
+              <div key={tournament.id} className={styles.tournamentCard}>
+                <div className={styles.tournamentImage}>
                   <img src={tournament.image} alt={tournament.title} />
-                  <div className={`tournament-badge ${tournament.status}`}>
+                  <div className={`${styles.tournamentBadge} ${styles[tournament.status]}`}>
                     {tournament.status === "live" ? "Direct" : "À Venir"}
                   </div>
                 </div>
-                <div className="tournament-content">
-                  <div className="tournament-meta">
-                    <span className="tournament-game">{tournament.game}</span>
-                    <span className="tournament-date">{tournament.date}</span>
+                <div className={styles.tournamentContent}>
+                  <div className={styles.tournamentMeta}>
+                    <span className={styles.tournamentGame}>{tournament.game}</span>
+                    <span className={styles.tournamentDate}>{tournament.date}</span>
                   </div>
-                  <h3 className="tournament-title">{tournament.title}</h3>
-                  <p className="tournament-description">{tournament.description}</p>
-                  <div className="tournament-info">
-                    <div className="info-item">
+                  <h3 className={styles.tournamentTitle}>{tournament.title}</h3>
+                  <p className={styles.tournamentDescription}>{tournament.description}</p>
+                  <div className={styles.tournamentInfo}>
+                    <div className={styles.infoItem}>
                       <svg
-                        className="info-icon"
+                         className={styles.infoIcon}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -104,9 +105,9 @@ export default function Tournaments() {
                       </svg>
                       <span>{tournament.teamsCount} équipes</span>
                     </div>
-                    <div className="info-item">
+                    <div className={styles.infoItem}>
                       <svg
-                        className="info-icon"
+                        className={styles.infoIcon}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -122,9 +123,9 @@ export default function Tournaments() {
                     </div>
                   </div>
                   {tournament.status === "live" ? (
-                    <Link href="/live" className="tournament-button">Regarder</Link>
+                    <Link href="/live" className={styles.tournamentButton}>Regarder</Link>
                   ) : (
-                    <button className="tournament-button" onClick={() => alert(`Vous serez notifié pour ${tournament.title}!`)}>
+                    <button className={styles.tournamentButton} onClick={() => alert(`Vous serez notifié pour ${tournament.title}!`)}>
                       M'avertir
                     </button>
                   )}

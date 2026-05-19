@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import styles from "./live.module.css";
 
 export default function Live() {
   const [messages, setMessages] = useState([
@@ -36,60 +37,60 @@ export default function Live() {
 
   return (
     <main className="main" style={{ minHeight: "100vh", display: "flex", justifyContent: "center" }}>
-      <div className="live-grid">
+      <div className={styles.liveGrid}>
         {/* Left Side: Stream Video Container */}
-        <div className="stream-container">
-          <div className="hero-video" style={{ padding: 0, position: "relative", overflow: "hidden", borderRadius: "20px", border: "1px solid rgba(59, 130, 246, 0.3)" }}>
+        <div className={styles.streamContainer}>
+          <div style={{ padding: 0, position: "relative", overflow: "hidden", borderRadius: "20px", border: "1px solid rgba(59, 130, 246, 0.3)" }}>
             <video autoPlay controls muted style={{ width: "100%", display: "block" }}>
               <source src="/SupSup.mp4" type="video/mp4" />
               Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
           </div>
           
-          <div className="stream-meta">
-            <div className="stream-meta-header">
-              <h2 className="stream-title">Overwatch-2 Worlds Grand Finals</h2>
-              <div className="stream-status-badges">
-                <span className="badge-live-stream">En Direct</span>
-                <span className="badge-viewers">124,582 spectateurs</span>
+          <div className={styles.streamMeta}>
+            <div className={styles.streamMetaHeader}>
+              <h2 className={styles.streamTitle}>Overwatch-2 Worlds Grand Finals</h2>
+              <div className={styles.streamStatusBadges}>
+                <span className={styles.badgeLiveStream}>En Direct</span>
+                <span className={styles.badgeViewers}>124,582 spectateurs</span>
               </div>
             </div>
-            <p className="stream-description">
+            <p className={styles.streamDescription}>
               Le choc des titans entre Phoenix Rising et Shadow Syndicate pour le titre mondial sur Overwatch 2. Suivez l'affrontement final en haute définition et commentez en temps réel avec la communauté.
             </p>
           </div>
         </div>
 
         {/* Right Side: Interactive Chat Sidebar */}
-        <div className="live-chat-panel">
-          <div className="chat-header">
-            <h3 className="chat-header-title">Chat en direct</h3>
+        <div className={styles.liveChatPanel}>
+          <div className={styles.chatHeader}>
+            <h3 className={styles.chatHeaderTitle}>Chat en direct</h3>
             <span style={{ fontSize: "0.75rem", color: "#a0a0a0" }}>● Compétition</span>
           </div>
 
-          <div className="chat-messages">
+          <div className={styles.chatMessages}>
             {messages.map((msg) => (
-              <div key={msg.id} className={`chat-message ${msg.self ? "self" : ""}`}>
-                <div className="chat-message-meta">
-                  <span className="chat-user">{msg.user}</span>
-                  <span className="chat-time">{msg.time}</span>
+              <div key={msg.id} className={`${styles.chatMessage} ${msg.self ? styles.self : ""}`}>
+                <div className={styles.chatMessageMeta}>
+                  <span className={styles.chatUser}>{msg.user}</span>
+                  <span className={styles.chatTime}>{msg.time}</span>
                 </div>
-                <p className="chat-text">{msg.text}</p>
+                <p className={styles.chatText}>{msg.text}</p>
               </div>
             ))}
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="chat-footer">
-            <form onSubmit={handleSendMessage} className="chat-input-form">
+          <div className={styles.chatFooter}>
+            <form onSubmit={handleSendMessage} className={styles.chatInputForm}>
               <input
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Envoyer un message..."
-                className="chat-input"
+                className={styles.chatInput}
               />
-              <button type="submit" className="chat-send-btn">
+              <button type="submit" className={styles.chatSendBtn}>
                 Envoyer
               </button>
             </form>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import styles from "./news.module.css";
 
 export default function News() {
   const [newsList, setNewsList] = useState([]);
@@ -37,20 +38,20 @@ export default function News() {
   });
 
   return (
-    <section id="news" className="section section-dark" style={{ paddingTop: "120px", minHeight: "100vh" }}>
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Actualités E-Sport</h2>
-          <p className="section-description">
+    <section id="news" className={`${styles.section} ${styles.sectionDark}`}>
+      <div className={styles.container}>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Actualités E-Sport</h2>
+          <p className={styles.sectionDescription}>
             Suivez les derniers patchs, résultats de tournois et actualités de transferts.
           </p>
         </div>
 
         {/* Filters and Search Bar - UI Redesign & Rearrangement */}
-        <div className="news-filter-wrapper">
-          <div className="news-search-box">
+        <div className={styles.newsFilterWrapper}>
+          <div className={styles.newsSearchBox}>
             <svg
-              className="news-search-icon"
+              className={styles.newsSearchIcon}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -67,16 +68,16 @@ export default function News() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Rechercher des articles..."
-              className="news-search-input"
+              className={styles.newsSearchInput}
             />
           </div>
 
-          <div className="news-tag-pills">
+          <div className={styles.newsTagPills}>
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedTag(cat)}
-                className={`news-tag-pill ${selectedTag === cat ? "active" : ""}`}
+                className={`${styles.newsTagPill} ${selectedTag === cat ? styles.active : ""}`}
               >
                 {cat}
               </button>
@@ -93,22 +94,22 @@ export default function News() {
             Aucun article ne correspond à votre recherche.
           </div>
         ) : (
-          <div className="news-grid">
+          <div className={styles.newsGrid}>
             {filteredNews.map((item) => (
-              <div key={item.id} className="news-card">
-                <div className="news-image">
+              <div key={item.id} className={styles.newsCard}>
+                <div className={styles.newsImage}>
                   <img src={item.image} alt={item.title} />
-                  <span className="news-badge">{item.category}</span>
+                  <span className={styles.newsBadge}>{item.category}</span>
                 </div>
-                <div className="news-content">
-                  <div className="news-meta">
+                <div className={styles.newsContent}>
+                  <div className={styles.newsMeta}>
                     <span>{item.date}</span>
                     <span>•</span>
                     <span>{item.author}</span>
                   </div>
-                  <h3 className="news-title">{item.title}</h3>
-                  <p className="news-description">{item.excerpt}</p>
-                  <Link href="/news/article" className="news-link">
+                  <h3 className={styles.newsTitle}>{item.title}</h3>
+                  <p className={styles.newsDescription}>{item.excerpt}</p>
+                  <Link href="/news/article" className={styles.newsLink}>
                     Lire la suite
                   </Link>
                 </div>
