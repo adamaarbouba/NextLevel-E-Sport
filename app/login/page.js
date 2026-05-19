@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import styles from "./login.module.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -31,52 +32,52 @@ export default function Login() {
   };
 
   return (
-    <main className="auth-container">
-      <div className="auth-card">
-        <h2 className="auth-title">Connexion</h2>
+    <main className={styles.authContainer}>
+      <div className={styles.authCard}>
+        <h2 className={styles.authTitle}>Connexion</h2>
 
-        <form onSubmit={handleLogin} className="auth-form">
-          <div className="auth-input-group">
-            <label className="auth-label">Adresse Email</label>
+        <form onSubmit={handleLogin} className={styles.authForm}>
+          <div className={styles.authInputGroup}>
+            <label className={styles.authLabel}>Adresse Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Exemple: playerone@gmail.com"
-              className="auth-input"
+              className={styles.authInput}
               required
             />
           </div>
 
-          <div className="auth-input-group">
-            <label className="auth-label">Mot de passe</label>
+          <div className={styles.authInputGroup}>
+            <label className={styles.authLabel}>Mot de passe</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Entrez votre mot de passe"
-              className="auth-input"
+              className={styles.authInput}
               required
             />
           </div>
           
           {message && (
-            <div className="auth-status success">
+            <div className={`${styles.authStatus} ${styles.success}`}>
               {message}
             </div>
           )}
 
           {error && (
-            <div className="auth-status error">
+            <div className={`${styles.authStatus} ${styles.error}`}>
               {error}
             </div>
           )}
 
-          <button type="submit" className="auth-btn" disabled={loading}>
+          <button type="submit" className={styles.authBtn} disabled={loading}>
             <span>{loading ? "Connexion..." : "Se connecter"}</span>
             {!loading && (
               <svg
-                className="auth-btn-icon"
+                className={styles.authBtnIcon}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -92,12 +93,12 @@ export default function Login() {
           </button>
         </form>
 
-        <p className="auth-footer-text">
+        <p className={styles.authFooterText}>
           Pas encore inscrit ?{" "}
-          <Link href="/sign-up" className="auth-link">
+          <Link href="/sign-up" className={styles.authLink}>
             Créer un compte
             <svg
-              className="auth-btn-icon"
+              className={styles.authBtnIcon}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

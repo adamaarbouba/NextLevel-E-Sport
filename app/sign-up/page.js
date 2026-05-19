@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from "./signup.module.css";
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -48,90 +49,90 @@ export default function SignUp() {
   };
 
   return (
-    <main className="auth-container">
-      <div className="auth-card" style={{ maxWidth: "550px" }}>
-        <h2 className="auth-title">Inscription</h2>
+    <main className={styles.authContainer}>
+      <div className={styles.authCard} style={{ maxWidth: "550px" }}>
+        <h2 className={styles.authTitle}>Inscription</h2>
 
-        <form onSubmit={handleSignUp} className="auth-form">
-          <div className="auth-row">
-            <div className="auth-input-group">
-              <label className="auth-label">Prénom</label>
+        <form onSubmit={handleSignUp} className={styles.authForm}>
+          <div className={styles.authRow}>
+            <div className={styles.authInputGroup}>
+              <label className={styles.authLabel}>Prénom</label>
               <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Votre prénom"
-                className="auth-input"
+                className={styles.authInput}
                 required
               />
             </div>
 
-            <div className="auth-input-group">
-              <label className="auth-label">Nom</label>
+            <div className={styles.authInputGroup}>
+              <label className={styles.authLabel}>Nom</label>
               <input
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder="Votre nom de famille"
-                className="auth-input"
+                className={styles.authInput}
                 required
               />
             </div>
           </div>
 
-          <div className="auth-input-group">
-            <label className="auth-label">Adresse Email</label>
+          <div className={styles.authInputGroup}>
+            <label className={styles.authLabel}>Adresse Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Exemple: playerone@gmail.com"
-              className="auth-input"
+              className={styles.authInput}
               required
             />
           </div>
 
-          <div className="auth-input-group">
-            <label className="auth-label">Mot de passe</label>
+          <div className={styles.authInputGroup}>
+            <label className={styles.authLabel}>Mot de passe</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Créer un mot de passe robuste"
-              className="auth-input"
+              className={styles.authInput}
               required
             />
           </div>
 
-          <div className="auth-input-group">
-            <label className="auth-label">Confirmer le mot de passe</label>
+          <div className={styles.authInputGroup}>
+            <label className={styles.authLabel}>Confirmer le mot de passe</label>
             <input
               type="password"
               value={verifyPassword}
               onChange={(e) => setVerifyPassword(e.target.value)}
               placeholder="Répétez votre mot de passe"
-              className="auth-input"
+              className={styles.authInput}
               required
             />
           </div>
 
           {error && (
-            <div className="auth-status error">
+            <div className={`${styles.authStatus} ${styles.error}`}>
               {error}
             </div>
           )}
 
           {message && (
-            <div className="auth-status success">
+            <div className={`${styles.authStatus} ${styles.success}`}>
               {message}
             </div>
           )}
 
-          <button type="submit" className="auth-btn" disabled={loading}>
+          <button type="submit" className={styles.authBtn} disabled={loading}>
             <span>{loading ? "Inscription..." : "S'inscrire"}</span>
             {!loading && (
               <svg
-                className="auth-btn-icon"
+                className={styles.authBtnIcon}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -147,12 +148,12 @@ export default function SignUp() {
           </button>
         </form>
 
-        <p className="auth-footer-text">
+        <p className={styles.authFooterText}>
           Déjà inscrit ?{" "}
-          <Link href="/login" className="auth-link">
+          <Link href="/login" className={styles.authLink}>
             Se connecter
             <svg
-              className="auth-btn-icon"
+              className={styles.authBtnIcon}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
