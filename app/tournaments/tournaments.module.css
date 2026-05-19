@@ -65,6 +65,164 @@
   box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
 }
 
+/* Spotlight Featured Tournament Banner */
+.featuredCard {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  background: rgba(15, 15, 25, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(59, 130, 246, 0.15);
+  transition: all 0.3s ease;
+}
+
+.featuredCard:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(139, 92, 246, 0.25);
+}
+
+.featuredImage {
+  position: relative;
+  height: 100%;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.featuredImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featuredCard:hover .featuredImage img {
+  transform: scale(1.05);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0.6rem 1.25rem;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.featuredBadge::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.featuredContent {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featuredMeta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  align-items: center;
+}
+
+.featuredGame {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.featuredTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.featuredDescription {
+  font-size: 1.05rem;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.featuredInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.featuredInfoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.featuredInfoLabel {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+}
+
+.featuredInfoVal {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.featuredBtn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.featuredBtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+}
+
 /* Tournaments Grid */
 .tournamentsGrid {
   display: grid;
@@ -77,13 +235,29 @@
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
   transition: all 0.3s ease;
+}
+
+/* Cybernetic Glowing Status Borders */
+.tournamentCard.liveCard {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.05);
+}
+.tournamentCard.liveCard:hover {
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 20px 40px rgba(239, 68, 68, 0.2), 0 0 30px rgba(239, 68, 68, 0.2);
+}
+
+.tournamentCard.upcomingCard {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.05);
+}
+.tournamentCard.upcomingCard:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2), 0 0 30px rgba(59, 130, 246, 0.2);
 }
 
 .tournamentCard:hover {
   transform: translateY(-8px);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
 }
 
 .tournamentImage {
@@ -96,11 +270,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
 .tournamentCard:hover .tournamentImage img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .tournamentBadge {
@@ -174,7 +348,7 @@
   gap: 1.5rem;
   margin-bottom: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
 }
 
 .infoItem {
@@ -191,37 +365,478 @@
   color: #3b82f6;
 }
 
+.cardButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
 .tournamentButton {
   display: block;
   width: 100%;
-  padding: 0.875rem;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.8rem;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
   color: #3b82f6;
   text-align: center;
   text-decoration: none;
   font-weight: 700;
+  font-size: 0.85rem;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
   cursor: pointer;
   outline: none;
 }
 
-.tournamentButton:focus {
-  background-color: rgba(80, 255, 203, 0.42);
-}
-
 .tournamentButton:hover {
   background: rgba(59, 130, 246, 0.2);
   border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border: none;
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+/* --- High-Tech Modal Overlay & Brackets Tree --- */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(5, 5, 10, 0.85);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(15, 15, 25, 0.95);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(139, 92, 246, 0.2);
+  border-radius: 24px;
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modalHeader {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+
+.modalHeaderBg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.modalHeaderBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.modalHeaderOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, rgba(15, 15, 25, 0.95) 0%, rgba(15, 15, 25, 0.3) 100%);
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modalCloseBtn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.modalTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modalHeaderBadge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #60a5fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.modalTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* Modal Inner Navigation Tabs */
+.modalTabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 2rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.modalTab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #a0a0a0;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modalTab:hover {
+  color: #ffffff;
+}
+
+.modalTab.active {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+}
+
+.modalBody {
+  padding: 2.5rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Modal Info Panel */
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.metaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metaLabel {
+  font-size: 0.75rem;
+  color: #808080;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metaVal {
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Bracket Matches Representation */
+.bracketSectionTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bracketSectionTitle::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: #3b82f6;
+  border-radius: 2px;
+}
+
+.bracketWrapper {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.bracketRound {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 250px;
+}
+
+.roundName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #3b82f6;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  border-left: 2px solid #3b82f6;
+  padding-left: 0.5rem;
+}
+
+.bracketMatch {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.matchHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.7rem;
+  color: #606060;
+  text-transform: uppercase;
+}
+
+.matchStatusTag {
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+.teamRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.teamRow:last-child {
+  border-bottom: none;
+}
+
+.teamLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.teamSymbol {
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+
+.teamText {
+  font-size: 0.85rem;
+  color: #d0d0d0;
+  font-weight: 500;
+}
+
+.teamScore {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #808080;
+}
+
+.winningRow .teamText {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.winningRow .teamScore {
+  color: #8b5cf6;
+}
+
+/* Map Pool Panel */
+.mapsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.mapCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.mapCard:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-color: #3b82f6;
+}
+
+/* Inscription panel */
+.registerPanel {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.registerTitle {
+  font-family: var(--font-orbitron), sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.registerDesc {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+.registerForm {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.registerInput {
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.registerInput:focus {
+  border-color: #8b5cf6;
+}
+
+.registerBtn {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-orbitron), sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.registerBtn:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+@media (max-width: 900px) {
+  .featuredCard {
+    grid-template-columns: 1fr;
+  }
+  .featuredImage {
+    min-height: 240px;
+  }
+  .featuredContent {
+    padding: 2rem;
+  }
+  .modalContent {
+    width: 95%;
+  }
 }
 
 @media (max-width: 768px) {
-  .tournamentsGrid {
+  .featuredTitle {
+    font-size: 1.75rem;
+  }
+  .featuredInfoGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .cardButtons {
     grid-template-columns: 1fr;
   }
-  .sectionTitle {
-    font-size: 2rem;
+  .modalHeader {
+    height: 140px;
+    padding: 1rem;
+  }
+  .modalTitle {
+    font-size: 1.5rem;
+  }
+  .metaGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .registerForm {
+    flex-direction: column;
   }
 }
