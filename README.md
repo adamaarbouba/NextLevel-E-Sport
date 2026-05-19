@@ -1,27 +1,45 @@
-<h1>Bonjour , 
-</h1>
-<h2>NextLevel E-Sport</h2>
-Ce projet est une intégration HTML/CSS basée sur une maquette Figma.
-Il présente une plateforme dédiée à l’univers e-sport et gaming compétitif.
+# NextLevel E-Sport (Modernized with Next.js)
 
-<h3>Fonctionnement :</h3>
+Ce projet est une plateforme moderne dédiée à l’univers e-sport et gaming compétitif, initialement basée sur une maquette Figma et migrée vers **Next.js (App Router)** pour offrir de meilleures performances et une structure de composants réutilisables.
 
-Ouvre le fichier index.html dans ton navigateur.
+---
 
-La mise en page est gérée avec Flexbox et Grid.
+## 🚀 Technologies utilisées
 
-Le design est responsive : le site s’adapte automatiquement aux écrans desktop, tablette et mobile.
+- **Framework** : Next.js 16 (React)
+- **Design & Layout** : Vanilla CSS, Flexbox, Grid Layout
+- **Polices** : Google Fonts (Orbitron et Rajdhani) configurées de manière optimisée via `next/font`
+- **Ressources** : Images et vidéos e-sport optimisées dans le répertoire public
 
-<h3>Compétences visées</h3>
+---
 
-C1. Planifier le travail à effectuer individuellement <br>
-niveau 1, imiter<br>
-C6. Présenter un travail réalisé en synthétisant ses résultats, sa démarche<br>
-niveau 1, imiter<br>
-C1. Installer et configurer son environnement de travail<br>
-niveau 1, imiter<br>
-C2. Maquetter des interfaces utilisateur<br>
-niveau 1, imiter<br>
-C3. Réaliser des interfaces utilisateur<br>
-niveau 2, adapter
+## 🛠️ Installation et Démarrage
 
+Suivez ces étapes pour installer et lancer le projet localement :
+
+### 1. Installation des dépendances
+```bash
+npm install
+```
+
+### 2. Lancement du serveur de développement
+```bash
+npm run dev
+```
+Ouvrez ensuite [http://localhost:3000](http://localhost:3000) dans votre navigateur pour visualiser le site.
+
+### 3. Build pour la production
+```bash
+npm run build
+npm run start
+```
+
+---
+
+## 🎯 Compétences visées
+
+- **C1** : Planifier le travail à effectuer individuellement *(niveau 1, imiter)*
+- **C6** : Présenter un travail réalisé en synthétisant ses résultats, sa démarche *(niveau 1, imiter)*
+- **C1** : Installer et configurer son environnement de travail *(niveau 1, imiter)*
+- **C2** : Maquetter des interfaces utilisateur *(niveau 1, imiter)*
+- **C3** : Réaliser des interfaces utilisateur *(niveau 2, adapter)*
